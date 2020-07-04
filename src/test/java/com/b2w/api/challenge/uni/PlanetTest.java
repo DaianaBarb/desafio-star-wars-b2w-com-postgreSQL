@@ -101,15 +101,11 @@ public class PlanetTest {
 			dto.setClimate("arid");
 			dto.setTerrain("desert");
 			
-			 PlanetDtoRequest dto2= new  PlanetDtoRequest();
-			    dto2.setName("Tatooine");
-				dto2.setClimate("arid");
-				dto2.setTerrain("desert");
+			
 	       	this.service.save(dto);
-	   		this.service.save(dto2);
 	   	   List<Planet> planets = repository.findAll();
 	   	   
-	   	   Assertions.assertThat(planets.size()).isEqualTo(2);
+	   	   Assertions.assertThat(planets.size()).isEqualTo(1);
 	   		
 	   	}
 	
