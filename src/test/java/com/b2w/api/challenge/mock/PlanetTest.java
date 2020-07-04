@@ -25,51 +25,6 @@ import com.google.gson.GsonBuilder;
 @SpringBootTest(classes=ChallengeB2wStarWarsApplication.class)
 @AutoConfigureMockMvc
 public class PlanetTest {
-	 @Autowired
-	    private MockMvc mvc;
-	    
-	    Gson gson = new GsonBuilder().create();
-	    
-		private static final MediaType APPLICATION_JSON_UTF8 = new MediaType(MediaType.APPLICATION_JSON.getType(),
-		  	      MediaType.APPLICATION_JSON.getSubtype(), Charset.forName("utf8"));
-		
-	       @Test
-	    public void shouldReturn201SaveLog() throws Exception {
-	    
-	    	String eventJosn = "{\r\n" + 
-	    			"  \"climate\": \"temperado\",\r\n" + 
-	    			"  \"name\": \"Alderaan\",\r\n" + 
-	    			"  \"terrain\": \"montanhas\"\r\n" + 
-	    			"}";
-	    	
-	    	
-	    	MvcResult result= mvc.perform(MockMvcRequestBuilders.post("/v1/api/star-wars")
-	                .contentType(APPLICATION_JSON_UTF8).content(eventJosn)).andReturn();
-	        int status = result.getResponse().getStatus();
-	        assertEquals(201, status);
-	    }
-	    
-	    
-	    
-	     @Test
-		    public void shouldReturn202FindByName() throws Exception {
-		    	
-		       mvc.perform(MockMvcRequestBuilders.get("/v1/api/star-wars/name?name=Alderaan")).andExpect(status().isAccepted());
-		     
-		    }
-		    
-	    @Test
-	    public void shouldReturn202FindById() throws Exception {
-	    	
-	       mvc.perform(MockMvcRequestBuilders.get("/v1/api/star-wars/1")).andExpect(status().isAccepted());
-	     
-	    }
-	    
-	    @Test
-	    public void shouldReturn200DeleteById() throws Exception {
-	      
-	        mvc.perform(MockMvcRequestBuilders.delete("/v1/api/star-wars/1"))
-	                .andExpect(status().isAccepted());
-	    }
+	
 	    
 }
