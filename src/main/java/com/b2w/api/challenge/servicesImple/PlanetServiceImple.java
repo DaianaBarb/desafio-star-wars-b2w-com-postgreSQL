@@ -36,7 +36,7 @@ public class PlanetServiceImple implements PlanetService {
 		Planet planet1 = repository.findByNameIgnoreCase(planet.getName());
 		
 		if(planet1 != null) {
-			return new ResponseEntity<Planet> ( planet1, HttpStatus.BAD_REQUEST);
+			return new ResponseEntity<Planet> (HttpStatus.BAD_REQUEST);
 		}
 		
 		if(this.getNumberOfAppearances(planet.getName())==0) {
